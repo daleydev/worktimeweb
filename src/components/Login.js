@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useCallback, useState, useContext } from 'react';
+import { FirebaseApp } from '../firebase/firebase'
+import { withRouter, Redirect } from 'react-router-dom'
+import { AuthContext } from '../firebase/auth'
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -46,8 +50,35 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignIn() {
+function Login({ history }) {
   const classes = useStyles();
+  const [isRemember, setIsRemember] = useState(false)
+
+  const handleSignIn = useCallback(async event => {
+    event.preventDefault();
+    const { email, password } = event.target.elements;
+    try {
+        await FirebaseApp
+          .auth()
+          .signInWithEmailAndPassword(email.value, password.value);
+          console.log(`User '${email.value}' is successfully login.`)
+        history.push('/')
+    } catch (err) {
+      alert(err)
+    }
+  }, [history])
+
+  const handleRemember = event => {
+    setIsRemember(event.target.checked)
+  }
+
+  const { currentUser } = useContext(AuthContext);
+
+  console.log(currentUser);
+
+  if(currentUser) {
+    return <Redirect to='/profile' />
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -59,7 +90,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleSignIn}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -68,6 +99,7 @@ export default function SignIn() {
             id="email"
             label="Email Address"
             name="email"
+            type='email'
             autoComplete="email"
             autoFocus
           />
@@ -83,7 +115,7 @@ export default function SignIn() {
             autoComplete="current-password"
           />
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
+            control={<Checkbox checked={isRemember} onChange={handleRemember} value="remember" color="primary" />}
             label="Remember me"
           />
           <Button
@@ -115,3 +147,5 @@ export default function SignIn() {
     </Container>
   );
 }
+
+export default  withRouter(Login)

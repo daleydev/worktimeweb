@@ -1,7 +1,31 @@
-.App {
-  text-align: center;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
+.App {
+  text-align: center;
+  background-color: #F5F5F8;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.profile_page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ddd;
+  padding-top: 50px;
+}
+
+.profile_container {
+  max-width: 500px;
+  height: 700px;
+  margin: auto;
+}
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +59,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

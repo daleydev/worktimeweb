@@ -1,4 +1,5 @@
-This app use firebase as backend.
+This app use firebase as backend. Import your firestore config to App.js to get start.
+
 
 ## How to start
 
