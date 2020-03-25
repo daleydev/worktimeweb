@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../firebase/auth";
+import { AuthContext } from "../auth";
 // material ui imports
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";

@@ -24,4 +24,4 @@ yarn-error.log*
 
 # worktime app
 .env
-src/firebase/firebase.js
+

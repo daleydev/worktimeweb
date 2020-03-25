@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { FirebaseApp } from '../firebase/firebase'
+import firebase from '../firebase'
 import { withRouter } from 'react-router-dom'
 
 import Avatar from '@material-ui/core/Avatar';
@@ -57,7 +57,7 @@ function SignUp ({ history }) {
       event.preventDefault();
       const { email, password } = event.target.elements;
       try {
-          await FirebaseApp
+          await firebase
             .auth()
             .createUserWithEmailAndPassword(email.value, password.value);
           history.push('/')

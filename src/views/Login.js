@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useContext } from 'react';
-import { FirebaseApp } from '../firebase/firebase'
+import firebase from '../firebase'
 import { withRouter, Redirect } from 'react-router-dom'
-import { AuthContext } from '../firebase/auth'
+import { AuthContext } from '../auth'
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -58,7 +58,7 @@ function Login({ history }) {
     event.preventDefault();
     const { email, password } = event.target.elements;
     try {
-        await FirebaseApp
+        await firebase
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
           console.log(`User '${email.value}' is successfully login.`)
@@ -74,10 +74,8 @@ function Login({ history }) {
 
   const { currentUser } = useContext(AuthContext);
 
-  console.log(currentUser);
-
   if(currentUser) {
-    return <Redirect to='/profile' />
+    return <Redirect to='/console' />
   }
 
   return (
