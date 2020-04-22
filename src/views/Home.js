@@ -1,10 +1,13 @@
 import React from 'react';
 
+// dev imports
+import StoreCard from '../components/StoreCard'
 
 const Home = () => {
+    
     return (
         <>
-            <h1>home</h1>
+            Home page
         </>
     )
 }

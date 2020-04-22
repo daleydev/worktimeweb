@@ -8,7 +8,7 @@ import Home from "./views/Home";
 import Login from "./views/Login";
 import Signup from "./views/Signup";
 import Profile from "./views/Profile";
-import Console from "./views/console/Console";
+import Console from "./views/Console";
 
 function App() {
   return (

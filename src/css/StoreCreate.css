@@ -1,0 +1,33 @@
+.store-create-create {
+     height: 100%;
+     width: 100%;
+     
+
+     /* border: 1px solid gray; */
+}
+
+.store-create-back {
+     cursor: pointer;
+}
+
+.store-create-back:hover {
+     opacity: 0.5;
+}
+
+.store-create-header {
+     padding: 20px 0;
+     font-size: 24px;
+     text-align: center;
+}
+
+
+.store-create-form {
+     text-align: center;
+     display: grid;
+     gap: 20px;
+     justify-items: center;
+}
+
+.store-create-button {
+     width: 140px;
+}

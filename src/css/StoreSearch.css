@@ -1,0 +1,20 @@
+.store-search-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin: 20px 0;
+}
+
+.store-search-input {
+     height: 30px;
+     width: 70%;
+     border-radius: 20px;
+     border: none;
+     padding: 10px 15px;
+     font-size: 24px;
+}
+
+.store-search-results {
+     display: grid;
+     gap: 20px;
+}

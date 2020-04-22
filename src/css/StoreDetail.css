@@ -1,0 +1,15 @@
+.store-detail {
+     width: 100%;
+
+     /* border: 1px solid gray; */
+}
+
+.store-detail-close {
+     width: 100%;
+     display: block;
+}
+
+.store-detail-close span {
+     color: #3F51B5;
+     float: right;
+}
